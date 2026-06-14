@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jed &amp; Steph are getting married on September 27, 2026 in Baao, Camarines Sur. Join us — kindly RSVP." />
+  <meta name="theme-color" content="#426041" />
+  <title>Jed &amp; Steph · We're Getting Married</title>
+
+  <!-- 💍 Tab icon (no file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
+
+  <!-- Social share preview (Messenger / Facebook / iMessage).
+       After you deploy, replace the URLs below with your real GitHub Pages link
+       (e.g. https://username.github.io/rsvp/) so the photo shows up. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jed &amp; Steph · We're Getting Married" />
+  <meta property="og:description" content="September 27, 2026 · Baao, Camarines Sur. Join us and kindly RSVP." />
+  <meta property="og:image" content="img/OurStory.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <svg class="loader__rings" viewBox="0 0 130 80" role="img" aria-label="Loading">
+        <!-- diamond sparkle on top of the first ring -->
+        <path class="loader__gem" d="M50 8 l6 7 -6 7 -6 -7 z" />
+        <!-- two interlocking wedding bands -->
+        <circle class="loader__ring" cx="50" cy="46" r="24" />
+        <circle class="loader__ring loader__ring--2" cx="80" cy="46" r="24" />
+      </svg>
+      <p class="loader__names">Jed &amp; Steph</p>
+    </div>
+  </div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand">J &amp; S</a>
+    <nav class="nav__links">
+      <a href="#story">Our Story</a>
+      <a href="#nuptial">Nuptial</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#location">Venue</a>
+      <a href="#entourage">Entourage</a>
+      <a href="#attire">Attire</a>
+      <a href="#faq">FAQ</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#gifts">Gifts</a>
+      <a href="#rsvp" class="nav__cta">RSVP</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <!-- IMAGE PLACEHOLDER: replace the background-image in .hero (styles.css)
+         with your own photo, e.g. images/hero.jpg -->
+    <div class="hero__overlay"></div>
+    <div class="hero__content reveal">
+      <p class="hero__eyebrow">We're getting married</p>
+      <h1 class="hero__names">Jed <span>&amp;</span> Steph</h1>
+      <p class="hero__date">September 27, 2026 · Baao, Camarines Sur</p>
+      <p class="hero__hashtag">#JEDtooktherightSTEPH</p>
+      <a href="#rsvp" class="btn">RSVP Now</a>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== INVITATION ===================== -->
+  <section class="invite" id="invite" aria-label="Wedding invitation">
+    <div class="invite__grid">
+      <div class="invite__photo reveal">
+        <!-- Swap to any portrait couple photo you like -->
+        <img src="img/OurStory.jpg" alt="Jed and Steph" onerror="this.style.display='none'" />
+      </div>
+
+      <div class="invite__text reveal">
+        <p class="invite__intro">Together with our families, we</p>
+        <h2 class="invite__names">Jed &amp; Steph</h2>
+        <p class="invite__request">
+          request the honor of your presence for a celebration of love
+          as we begin the first day of our lives together.
+        </p>
+
+        <div class="inv-date">
+          <div class="inv-date__side"><span class="inv-line"></span><p>Sunday</p></div>
+          <div class="inv-date__main">
+            <span class="inv-month">September</span>
+            <span class="inv-day">27</span>
+            <span class="inv-year">2026</span>
+          </div>
+          <div class="inv-date__side"><span class="inv-line"></span><p>1:00 PM</p></div>
+        </div>
+
+        <p class="invite__venue">Saint Bartholomew Parish Church</p>
+        <p class="invite__reception-label">Reception to follow at</p>
+        <p class="invite__venue">Marinilas Garden Reception</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COUNTDOWN ===================== -->
+  <section class="countdown" id="countdown" aria-label="Countdown to the wedding">
+    <div class="countdown__inner reveal">
+      <p class="section__eyebrow center">Counting Down</p>
+      <h2 class="countdown__title">Until We Say "I Do"</h2>
+      <div class="countdown__timer">
+        <div class="countdown__item"><span id="cd-days">--</span><small>Days</small></div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__item"><span id="cd-hours">--</span><small>Hours</small></div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__item"><span id="cd-mins">--</span><small>Minutes</small></div>
+        <span class="countdown__sep">:</span>
+        <div class="countdown__item"><span id="cd-secs">--</span><small>Seconds</small></div>
+      </div>
+      <p class="countdown__date">September 27, 2026 · 1:00 PM</p>
+    </div>
+  </section>
+
+  <!-- ===================== OUR STORY ===================== -->
+  <section class="story section" id="story">
+    <div class="story__grid">
+      <div class="story__media reveal">
+        <img class="story__img" src="img/OurStory.jpg" alt="Jed and Steph" />
+      </div>
+      <div class="story__text reveal">
+        <p class="section__eyebrow">Our Story</p>
+        <h2 class="section__title">How it all began</h2>
+        <p>We first met at Zeferino Arroyo High School as fourth-year classmates.
+           What started as a simple friendship soon grew into something much more
+           special. Over the years, we shared countless memories, laughter,
+           challenges, and milestones that brought us closer together.</p>
+        <p>On <strong>August 12, 2017</strong>, we officially began our journey as
+           a couple. Through every season of life, our love continued to grow
+           stronger, leading to one of the happiest moments of our lives when we
+           got engaged on <strong>February 11, 2025</strong>.</p>
+        <p>Now, with grateful hearts and excitement for the future, we look forward
+           to beginning our next chapter together as we celebrate our wedding on
+           <strong>September 27, 2026</strong>.</p>
+        <p>We can't wait to share this special day with you. Thank you for being
+           part of our story and for celebrating our journey to forever. ❤️</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NUPTIAL MASS ===================== -->
+  <section class="nuptial section" id="nuptial">
+    <p class="section__eyebrow center">The Ceremony</p>
+    <h2 class="section__title center">Nuptial Mass</h2>
+    <p class="nuptial__intro center">
+      We warmly invite you to witness the celebration of our Holy Matrimony.
+    </p>
+
+    <div class="nuptial__card reveal">
+      <div class="nuptial__head">
+        <p class="nuptial__where">Saint Bartholomew Parish Church</p>
+        <p class="nuptial__when">Baao, Camarines Sur · Sunday, September 27, 2026 · 1:00 PM</p>
+      </div>
+
+      <!-- Order of the Nuptial Mass -->
+      <ol class="nuptial__order">
+        <li><span>Processional</span><small>Entrance of the wedding party</small></li>
+        <li><span>Opening Rites</span><small>Welcome &amp; greeting</small></li>
+        <li><span>Liturgy of the Word</span><small>Scripture readings &amp; homily</small></li>
+        <li><span>Rite of Marriage</span><small>Exchange of vows &amp; rings</small></li>
+        <li><span>Liturgy of the Eucharist</span><small>Holy Communion</small></li>
+        <li><span>Nuptial Blessing</span><small>Blessing of the couple</small></li>
+        <li><span>Recessional</span><small>Presentation of the newlyweds</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== WEDDING TIMELINE ===================== -->
+  <section class="timeline section" id="timeline">
+    <p class="section__eyebrow center">The Big Day</p>
+    <h2 class="section__title center">Wedding Timeline</h2>
+
+    <div class="timeline__track">
+      <div class="tl reveal">
+        <div class="tl__time">12:30 PM</div>
+        <div class="tl__dot"><span>⛪</span></div>
+        <div class="tl__body"><h3>Guest Arrival</h3><p>Please be seated before the ceremony begins.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">1:00 PM</div>
+        <div class="tl__dot"><span>💍</span></div>
+        <div class="tl__body"><h3>Nuptial Mass</h3><p>The ceremony &amp; exchange of vows.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">2:30 PM</div>
+        <div class="tl__dot"><span>📸</span></div>
+        <div class="tl__body"><h3>Photos &amp; Cocktails</h3><p>Welcome drinks while we capture some memories.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">3:00 PM</div>
+        <div class="tl__dot"><span>🥂</span></div>
+        <div class="tl__body"><h3>Reception &amp; Dinner</h3><p>Toasts, dinner, and heartfelt speeches.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">5:30 PM</div>
+        <div class="tl__dot"><span>🎉</span></div>
+        <div class="tl__body"><h3>Dancing &amp; Celebration</h3><p>Let's dance the night away!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VENUE / CHURCH + MAP ===================== -->
+  <section class="location section" id="location">
+    <p class="section__eyebrow center">Getting There</p>
+    <h2 class="section__title center">Ceremony &amp; Venue</h2>
+
+    <div class="location__grid">
+      <!-- CEREMONY / CHURCH -->
+      <div class="location__card reveal">
+        <img class="location__photo" src="img/details/church.jpg" alt="Saint Bartholomew Parish Church" onerror="this.style.display='none'" />
+        <span class="location__tag">Ceremony</span>
+        <h3>Saint Bartholomew Parish Church</h3>
+        <p class="location__addr">Baao, Camarines Sur</p>
+        <p class="location__time">Sunday, September 27, 2026 · 1:00 PM</p>
+        <a class="card__link" href="https://maps.google.com/?q=Saint+Bartholomew+Parish+Church+Baao+Camarines+Sur"
+           target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="location__map">
+          <iframe
+            title="Ceremony location map"
+            src="https://www.google.com/maps?q=Saint+Bartholomew+Parish+Church+Baao,+Camarines+Sur&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- RECEPTION -->
+      <div class="location__card reveal">
+        <img class="location__photo" src="img/details/receiption.jpg" alt="Marinilas Garden Reception" onerror="this.style.display='none'" />
+        <span class="location__tag">Reception</span>
+        <h3>Marinilas Garden Reception</h3>
+        <p class="location__addr">Zone 6, San Vicente, Baao, Camarines Sur</p>
+        <p class="location__time">Sunday, September 27, 2026 · 3:00 PM</p>
+        <a class="card__link" href="https://maps.google.com/?q=Marinilas+Garden+Reception+San+Vicente+Baao+Camarines+Sur"
+           target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="location__map">
+          <iframe
+            title="Reception location map"
+            src="https://www.google.com/maps?q=Marinilas+Garden+Reception,+San+Vicente,+Baao,+Camarines+Sur&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ENTOURAGE ===================== -->
+  <section class="entourage section" id="entourage">
+    <p class="section__eyebrow center">With Us at the Altar</p>
+    <h2 class="section__title center">The Entourage</h2>
+
+    <!-- Principal Sponsors -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Principal Sponsors</h3>
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Ninang</p>
+          <ul class="ent-list">
+            <li>Minerva Bayta</li>
+            <li>Margie</li>
+            <li>Dianna Velasco</li>
+            <li>Sophia Camingay</li>
+            <li>Grace Agapito</li>
+            <li>Alona Ros</li>
+            <li>Liezel Namoro</li>
+            <li>Judith Laniog</li>
+            <li>Janette Lagyap</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Ninong</p>
+          <ul class="ent-list">
+            <li>Jose Paz</li>
+            <li>Hon. Edwin Bedural</li>
+            <li>Engr. Alvin Michael Velasco</li>
+            <li>Franco Beldad</li>
+            <li>Engr. Dande Mamano</li>
+            <li>Narciso Ros</li>
+            <li>Juvy Namoro</li>
+            <li>Jeric Laniog</li>
+            <li>Jerry</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ent-divider reveal" aria-hidden="true"></div>
+
+    <!-- Honor Attendants -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Honor Attendants</h3>
+      <div class="ent-cards ent-cards--3">
+        <div class="ent-card"><p class="ent-role">Matron of Honor</p><p class="ent-name">Judy M. Bedural</p></div>
+        <div class="ent-card"><p class="ent-role">Maid of Honor</p><p class="ent-name">Lynrose S. Bedural</p></div>
+        <div class="ent-card"><p class="ent-role">Best Man</p><p class="ent-name">Zyben L. Gonowon</p></div>
+      </div>
+    </div>
+
+    <!-- Secondary Sponsors -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Secondary Sponsors</h3>
+      <div class="ent-cards ent-cards--4">
+        <div class="ent-card"><p class="ent-role">Candle</p><p class="ent-name">Brigitte Mae Bedural<br />&amp; Ronel Villamer</p></div>
+        <div class="ent-card"><p class="ent-role">Veil</p><p class="ent-name">Christine Mae Bedural<br />&amp; Carl Lagyap</p></div>
+        <div class="ent-card"><p class="ent-role">Cord</p><p class="ent-name">Cheloja Gonowon<br />&amp; Rowel Llagas</p></div>
+        <div class="ent-card"><p class="ent-role">Ribbon</p><p class="ent-name">Carissa Ricafrente<br />&amp; Arvin Panambo</p></div>
+      </div>
+    </div>
+
+    <!-- Bridesmaids & Groomsmen -->
+    <div class="ent-block reveal">
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Bride's Maids</p>
+          <ul class="ent-list">
+            <li>Chero-Vee Gonowon</li>
+            <li>Hazel Saulon</li>
+            <li>Christin Joy Gonowon</li>
+            <li>Cheska Mae Gonowon</li>
+            <li>Reynalyn Sardalla</li>
+            <li>Kate Danielle Bedural</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Groom's Men</p>
+          <ul class="ent-list">
+            <li>Fitz Gerald Bedural</li>
+            <li>Brian Gonowon</li>
+            <li>Noah Gonowon</li>
+            <li>Marc Johnrick Gamba</li>
+            <li>Jude Agapito</li>
+            <li>Areeb Frederick Bedural</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ushers & Usherettes -->
+    <div class="ent-block reveal">
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Usherettes</p>
+          <ul class="ent-list">
+            <li>Mary Grace Agapito</li>
+            <li>Edwel Chelsea Ditan</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Ushers</p>
+          <ul class="ent-list">
+            <li>Lyndon Bedural Jr.</li>
+            <li>Fitz Jacob Bedural</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ent-divider reveal" aria-hidden="true"></div>
+
+    <!-- Little ones & Bearers -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Bearers &amp; Little Ones</h3>
+      <div class="ent-cards ent-cards--4">
+        <div class="ent-card"><p class="ent-role">Little Bride &amp; Groom</p><p class="ent-name">Stella Marizz Ivanhoe<br />&amp; Sean Eldridge Bedural</p></div>
+        <div class="ent-card"><p class="ent-role">Bible Bearer</p><p class="ent-name">Gavin Lucho Laniog</p></div>
+        <div class="ent-card"><p class="ent-role">Coin Bearer</p><p class="ent-name">Edsel Beroin Jr.</p></div>
+        <div class="ent-card"><p class="ent-role">Ring Bearer</p><p class="ent-name">Mattias Andres Guttierez</p></div>
+      </div>
+      <div class="ent-card ent-card--wide">
+        <p class="ent-role">Flower Girls &amp; Boys</p>
+        <div class="ent-pairs">
+          <p class="ent-name">Luna Marie Ivanhoe &amp; Rhett Caleb Cayab</p>
+          <p class="ent-name">Judea Quinna Laniog &amp; Elon Ishmael Rivera</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ATTIRE GUIDE ===================== -->
+  <section class="attire section" id="attire">
+    <p class="section__eyebrow center">What to Wear</p>
+    <h2 class="section__title center">Attire Guide</h2>
+    <p class="attire__intro center">
+      We'd love for you to dress in <strong>garden formal</strong> attire that
+      complements our green palette. Here's a little guidance.
+    </p>
+
+    <!-- COLOR PALETTE -->
+    <div class="attire__palette reveal">
+      <div class="swatch" style="background:#24372c"><small>Forest</small></div>
+      <div class="swatch" style="background:#426041"><small>Pine</small></div>
+      <div class="swatch" style="background:#6f9a5f"><small>Sage</small></div>
+      <div class="swatch" style="background:#9bb88f"><small>Moss</small></div>
+      <div class="swatch" style="background:#d8c9a8"><small>Sand</small></div>
+    </div>
+
+    <div class="attire__grid">
+      <div class="attire__card reveal">
+        <div class="attire__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <path d="M22 22 L9 16 V30 L22 24 Z" />
+            <path d="M26 22 L39 16 V30 L26 24 Z" />
+            <rect x="21" y="20" width="6" height="8" rx="1.5" />
+          </svg>
+        </div>
+        <h3>For Him</h3>
+        <p>Suit or coat &amp; tie in earth tones — beige, taupe, olive, or deep
+           green. Loafers or dress shoes.</p>
+      </div>
+      <div class="attire__card reveal">
+        <div class="attire__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <path d="M20 9 L24 13 L28 9 L30 19 L26 22 L31 40 H17 L22 22 L18 19 Z" />
+          </svg>
+        </div>
+        <h3>For Her</h3>
+        <p>Long dress or elegant cocktail dress in sage, blush, or neutral tones.
+           Block heels recommended for the garden.</p>
+      </div>
+      <div class="attire__card reveal">
+        <div class="attire__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="15" />
+            <line x1="13.5" y1="13.5" x2="34.5" y2="34.5" />
+          </svg>
+        </div>
+        <h3>Kindly Avoid</h3>
+        <p>White, ivory, or bright red (reserved for the bride &amp; theme).
+           No casual jeans, shorts, or flip-flops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery section" id="gallery">
+    <p class="section__eyebrow center">Moments</p>
+    <h2 class="section__title center">Gallery</h2>
+    <!-- IMAGE PLACEHOLDER: swap each .placeholder for <img src="images/1.jpg" alt="" /> -->
+    <div class="gallery__grid">
+      <div class="placeholder reveal">Photo 1</div>
+      <div class="placeholder reveal">Photo 2</div>
+      <div class="placeholder reveal">Photo 3</div>
+      <div class="placeholder reveal">Photo 4</div>
+      <div class="placeholder reveal">Photo 5</div>
+      <div class="placeholder reveal">Photo 6</div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="faq section" id="faq">
+    <p class="section__eyebrow center">Good to Know</p>
+    <h2 class="section__title center">Frequently Asked Questions</h2>
+
+    <div class="faq__list reveal">
+
+      <details class="faq__item">
+        <summary>Is RSVP required?</summary>
+        <div class="faq__answer">
+          <p><strong>Yes, please!</strong> Confirming your attendance will help us
+          include you in our guest list. Please let us know before
+          <strong>August 2026</strong>.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>May I invite a "Plus 1" to the event?</summary>
+        <div class="faq__answer">
+          <p>As much as we'd love to accommodate all our friends and family, we
+          only have a limited number of seats. We have a strict guest list and we
+          might not have any extra seats for your companion.</p>
+          <p>Please understand that this event is strictly by invitation only.
+          Names not found on the guest list we have provided to our Coordinator
+          will not be allowed to enter.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>What if I RSVPed but could not go?</summary>
+        <div class="faq__answer">
+          <p>We would love to have you at our wedding, but we understand that there
+          are some things that are out of our control. However, please let us know
+          as soon as possible so we can reallocate your seats. Give us a toast from
+          afar.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>What if I did not RSVP, can I still go?</summary>
+        <div class="faq__answer">
+          <p>Please check with us first. Unfortunately, we have a strict guest list.
+          Kindly inform us if your schedule cleared up, so we can try to accommodate
+          you. Should some seats free up, then we'll let you know as soon as we can.
+          Please do not go unannounced — we might not have any available seat for you.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>What should I wear?</summary>
+        <div class="faq__answer">
+          <p>Your comfort is our priority. We hope our wedding will be a fun excuse
+          for you to dress up and be fab! Please refrain from wearing uncomfortable
+          shoes. You may also want to bring hand-held fans, especially in the church
+          venue. The reception venue will be an open pavilion area.</p>
+          <p>Do not wear slippers, flip-flops, and out-of-motif attire.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>What time should I arrive?</summary>
+        <div class="faq__answer">
+          <p>The ceremony will strictly start at <strong>1:00 PM sharp</strong>,
+          so it's better to get to the church before then. We would appreciate your
+          presence at the church as we exchange our vows. It would be nice to see
+          you all while we are having our first walk down the aisle.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>What should I do once I arrive at the reception venue?</summary>
+        <div class="faq__answer">
+          <p>You may use this time to:</p>
+          <ul>
+            <li>Enjoy the snacks available in the reception venue while waiting for the couple.</li>
+            <li>Mingle with other guests.</li>
+            <li>Make use of the photo booth — it will only be available for a few hours, so make sure you get yourself a photo to keep!</li>
+            <li>Roam around to check the venue and take photos.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>Can we bring our kids to the wedding?</summary>
+        <div class="faq__answer">
+          <p>This is a strict <strong>ADULTS ONLY</strong> event. As much as we'd
+          love to celebrate with your kids, the only kids invited to our wedding are
+          the ones in the entourage and those we requested. Kindly make certain
+          arrangements should you decide to attend our event. We hope you understand
+          and still enjoy the event.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>Am I allowed to take pictures or videos during the church ceremony?</summary>
+        <div class="faq__answer">
+          <p>We hired professional photographers and videographers to capture our
+          special moments so that you can sit back, relax, and enjoy it with us.
+          Please keep your phones down and in silent mode during the processional
+          and ceremony. Our beautiful images will be available after the wedding.</p>
+          <p>Also, please keep the aisle clear during the bridal entrance.</p>
+          <p>Don't worry — once we're pronounced husband and wife, you can take all
+          the photos you want after the ceremony and the entire reception, but please
+          make way for the team that will cover our wedding.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>How can I help the couple have a great time during their wedding?</summary>
+        <div class="faq__answer">
+          <ul>
+            <li>Pray with us that the weather will be in our favor and for the continuous blessings of our Lord as we enter the new chapter of our lives as husband and wife.</li>
+            <li>RSVP as early as your schedule is cleared.</li>
+            <li>Dress appropriately and follow our wedding motif.</li>
+            <li>Be on time.</li>
+            <li>Stay until the end of the program.</li>
+            <li>Join the activities and enjoy!</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===================== GIFTS ===================== -->
+  <section class="gifts section" id="gifts">
+    <p class="section__eyebrow center">With Gratitude</p>
+    <h2 class="section__title center">A Note on Gifts</h2>
+
+    <div class="gifts__note reveal">
+      <p class="gifts__poem">
+        As love is what the day is all about,<br />
+        your presence is one we can't celebrate without.
+      </p>
+      <p class="gifts__poem">
+        But should you still believe that a gift is worth giving,<br />
+        a small envelope for our future is a delightful blessing.
+      </p>
+      <p class="gifts__sub">For convenience, here are our QR codes for monetary gifts.</p>
+    </div>
+
+    <!-- QR CODES: replace each placeholder with your QR image,
+         e.g. <img src="images/gcash-qr.png" alt="GCash QR" /> -->
+    <div class="gifts__qr reveal">
+      <figure class="qr-card">
+        <div class="placeholder qr-card__img">QR Code 1</div>
+        <figcaption>GCash</figcaption>
+      </figure>
+      <figure class="qr-card">
+        <div class="placeholder qr-card__img">QR Code 2</div>
+        <figcaption>Maya / Bank</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== RSVP ===================== -->
+  <section class="rsvp section" id="rsvp">
+    <p class="section__eyebrow center">Be Our Guest</p>
+    <h2 class="section__title center">RSVP</h2>
+    <p class="rsvp__intro center">
+      Let us know if you could join us on our big day.<br />
+      Please respond on or before <strong>August 2026</strong>.
+    </p>
+    <p class="rsvp__seats center">We have reserved <strong>1</strong> seat/s for you.</p>
+
+    <!-- ============================================================
+         RSVP FORM
+         To make this work on GitHub Pages (no server), use Formspree:
+         1. Go to https://formspree.io and create a free form.
+         2. Copy your form endpoint (looks like https://formspree.io/f/abcdwxyz)
+         3. Paste it into the action="" below.
+         Submissions will be emailed to you. No backend needed.
+         ============================================================ -->
+    <form class="rsvp__form reveal" id="rsvpForm"
+          action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="field">
+        <label>Will you attend? *</label>
+        <div class="field__radios">
+          <label class="radio"><input type="radio" name="attending" value="Joyfully accept" required /> <span>Joyfully accept</span></label>
+          <label class="radio"><input type="radio" name="attending" value="Sorry to miss it" /> <span>Sorry to miss it</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message for the couple</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--full">Send RSVP</button>
+      <p class="rsvp__status" id="rsvpStatus" role="status"></p>
+    </form>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <h3 class="footer__names">Jed &amp; Steph</h3>
+    <p>September 27, 2026 · Baao, Camarines Sur</p>
+    <p class="footer__small">With love &amp; gratitude · #JEDtooktherightSTEPH</p>
+  </footer>
+
+  <!-- ===================== BACKGROUND MUSIC ===================== -->
+  <!-- AUDIO: drop your song in an audio/ folder and update src below.
+       Browsers block autoplay-with-sound, so the song starts on the
+       visitor's first click/scroll/tap, and this button toggles it. -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="music-btn" id="musicBtn" aria-label="Play music" title="Play / pause music">
+    <span class="music-btn__icon" id="musicIcon">🎵</span>
+    <span class="music-btn__bars" id="musicBars" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </span>
+  </button>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

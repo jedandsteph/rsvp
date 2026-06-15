@@ -687,15 +687,9 @@
   <!-- AUDIO: drop your song in an audio/ folder and update src below.
        Browsers block autoplay-with-sound, so the song starts on the
        visitor's first click/scroll/tap, and this button toggles it. -->
-  <audio id="bgAudio" loop preload="auto">
+  <audio id="bgAudio" loop preload="auto" autoplay>
     <source src="song.mp3" type="audio/mpeg" />
   </audio>
-  <button class="music-btn" id="musicBtn" aria-label="Play music" title="Play / pause music">
-    <span class="music-btn__icon" id="musicIcon">🎵</span>
-    <span class="music-btn__bars" id="musicBars" aria-hidden="true">
-      <i></i><i></i><i></i><i></i>
-    </span>
-  </button>
 
   <!-- Back to top -->
   <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>

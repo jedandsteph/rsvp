@@ -203,48 +203,26 @@ if (lightbox) {
 }
 
 /* ============================================================
-   BACKGROUND MUSIC
-   Browsers block autoplay-with-sound. Strategy:
-   1) Try to autoplay on load (works only if the browser allows it).
-   2) Otherwise, start on the visitor's FIRST interaction (click/scroll/key).
-   3) The floating button always lets them play/pause manually.
+   BACKGROUND MUSIC — autoplay on load, no button.
+   Browsers block autoplay-WITH-SOUND until the visitor interacts,
+   so: try to play immediately, and if blocked, start on their very
+   first tap/scroll/key. No on-screen control.
    ============================================================ */
-const audio   = document.getElementById('bgAudio');
-const musicBtn = document.getElementById('musicBtn');
-const musicIcon = document.getElementById('musicIcon');
+const audio = document.getElementById('bgAudio');
+if (audio) {
+  const playMusic = () => audio.play().catch(() => {});
 
-function setPlayingUI(isPlaying) {
-  musicBtn.classList.toggle('playing', isPlaying);
-  musicIcon.textContent = isPlaying ? '🔊' : '🎵';
-  musicBtn.setAttribute('aria-label', isPlaying ? 'Pause music' : 'Play music');
+  // 1) Optimistic autoplay on load
+  playMusic();
+
+  // 2) Fallback: start on the visitor's first interaction
+  const events = ['click', 'scroll', 'keydown', 'touchstart'];
+  function startOnFirstInteraction() {
+    if (audio.paused) playMusic();
+    events.forEach(evt => window.removeEventListener(evt, startOnFirstInteraction));
+  }
+  events.forEach(evt => window.addEventListener(evt, startOnFirstInteraction, { passive: true }));
 }
-
-function playMusic() {
-  audio.play().then(() => setPlayingUI(true)).catch(() => setPlayingUI(false));
-}
-
-// Manual toggle
-musicBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if (audio.paused) playMusic();
-  else { audio.pause(); setPlayingUI(false); }
-});
-
-// 1) Optimistic autoplay attempt
-playMusic();
-
-// 2) Fallback: start on first user gesture (only if not already playing)
-function startOnFirstInteraction() {
-  if (audio.paused) playMusic();
-  window.removeEventListener('click', startOnFirstInteraction);
-  window.removeEventListener('scroll', startOnFirstInteraction);
-  window.removeEventListener('keydown', startOnFirstInteraction);
-  window.removeEventListener('touchstart', startOnFirstInteraction);
-}
-window.addEventListener('click', startOnFirstInteraction);
-window.addEventListener('scroll', startOnFirstInteraction, { passive: true });
-window.addEventListener('keydown', startOnFirstInteraction);
-window.addEventListener('touchstart', startOnFirstInteraction, { passive: true });
 
 /* ============================================================
    RSVP FORM — async submit to Formspree (no page reload)

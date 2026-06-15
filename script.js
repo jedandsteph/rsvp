@@ -97,6 +97,112 @@ document.querySelectorAll('.reveal').forEach(el => {
 });
 
 /* ============================================================
+   GALLERY
+   - Preview shows a few photos; "View Full Gallery" opens a modal
+     with all of them.
+   - Click any photo to view it large (lightbox) with prev/next,
+     backdrop click, and keyboard (Esc / ← / →).
+
+   To add/remove photos: just keep them named 1.JPG, 2.JPG, … in
+   img/gallery and update GALLERY_COUNT below.
+   ============================================================ */
+const GALLERY_COUNT   = 16;  // how many photos are in img/gallery (1.JPG … N.JPG)
+const GALLERY_PREVIEW = 8;   // how many to show before "View Full Gallery"
+const GALLERY = Array.from({ length: GALLERY_COUNT }, (_, i) => `img/gallery/${i + 1}.JPG`);
+
+const lightbox = document.getElementById('lightbox');
+const galleryModal = document.getElementById('galleryModal');
+
+if (lightbox) {
+  const lbImg   = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev  = document.getElementById('lbPrev');
+  const lbNext  = document.getElementById('lbNext');
+  let current = 0;
+
+  function showPhoto(i) {
+    current = (i + GALLERY.length) % GALLERY.length; // wrap around
+    lbImg.src = GALLERY[current];
+    lbImg.alt = 'Jed and Steph';
+  }
+  function openLightbox(i) {
+    showPhoto(i);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // lock background scroll
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    // keep scroll locked if the full-gallery modal is still open underneath
+    if (!galleryModal || !galleryModal.classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Build a clickable thumbnail for a given photo index
+  function buildThumb(index) {
+    const img = document.createElement('img');
+    img.src = GALLERY[index];
+    img.alt = 'Jed and Steph';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('click', () => openLightbox(index));
+    img.addEventListener('error', () => { img.style.display = 'none'; });
+    return img;
+  }
+
+  // Populate the preview grid (first few) and the full grid (all)
+  const previewGrid = document.getElementById('galleryPreview');
+  const fullGrid    = document.getElementById('galleryFull');
+  GALLERY.forEach((_, i) => {
+    if (previewGrid && i < GALLERY_PREVIEW) previewGrid.appendChild(buildThumb(i));
+    if (fullGrid) fullGrid.appendChild(buildThumb(i));
+  });
+
+  // Lightbox controls
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => showPhoto(current - 1));
+  lbNext.addEventListener('click', () => showPhoto(current + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  // Full-gallery modal controls
+  if (galleryModal) {
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    const modalClose = document.getElementById('galleryModalClose');
+    function openGalleryModal() {
+      galleryModal.classList.add('open');
+      galleryModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeGalleryModal() {
+      galleryModal.classList.remove('open');
+      galleryModal.setAttribute('aria-hidden', 'true');
+      if (!lightbox.classList.contains('open')) document.body.style.overflow = '';
+    }
+    if (viewAllBtn) viewAllBtn.addEventListener('click', openGalleryModal);
+    if (modalClose) modalClose.addEventListener('click', closeGalleryModal);
+    galleryModal.addEventListener('click', (e) => {
+      if (e.target === galleryModal || e.target.classList.contains('gallery-modal__scroll')) {
+        closeGalleryModal();
+      }
+    });
+    galleryModal._close = closeGalleryModal; // expose for the keyboard handler
+  }
+
+  // Keyboard: lightbox first (it's on top), then the modal
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showPhoto(current - 1);
+      else if (e.key === 'ArrowRight') showPhoto(current + 1);
+    } else if (galleryModal && galleryModal.classList.contains('open')) {
+      if (e.key === 'Escape') galleryModal._close();
+    }
+  });
+}
+
+/* ============================================================
    BACKGROUND MUSIC
    Browsers block autoplay-with-sound. Strategy:
    1) Try to autoplay on load (works only if the browser allows it).

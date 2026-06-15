@@ -44,7 +44,7 @@
 
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
-    <a href="#hero" class="nav__brand">J &amp; S</a>
+    <a href="#hero" class="nav__brand" aria-label="Jed and Steph — back to top">Jed <span>&amp;</span> Steph</a>
     <nav class="nav__links">
       <a href="#story">Our Story</a>
       <a href="#nuptial">Nuptial</a>
@@ -70,9 +70,17 @@
     <div class="hero__content reveal">
       <p class="hero__eyebrow">We're getting married</p>
       <h1 class="hero__names">Jed <span>&amp;</span> Steph</h1>
-      <p class="hero__date">September 27, 2026 · Baao, Camarines Sur</p>
-      <p class="hero__hashtag">#JEDtooktherightSTEPH</p>
-      <a href="#rsvp" class="btn">RSVP Now</a>
+      <p class="hero__invite">Together with our families, we invite you to our wedding celebration</p>
+      <div class="hero__date">
+        <span class="hero__date-side">Sunday</span>
+        <span class="hero__date-main">
+          <span class="hero__date-month">September</span>
+          <span class="hero__date-day">27</span>
+          <span class="hero__date-year">2026</span>
+        </span>
+        <span class="hero__date-side">1:00 PM</span>
+      </div>
+      <p class="hero__venue">Saint Bartholomew Parish Church</p>
     </div>
     <div class="hero__scroll" aria-hidden="true">
       <span>Scroll</span>
@@ -451,14 +459,22 @@
   <section class="gallery section" id="gallery">
     <p class="section__eyebrow center">Moments</p>
     <h2 class="section__title center">Gallery</h2>
-    <!-- IMAGE PLACEHOLDER: swap each .placeholder for <img src="images/1.jpg" alt="" /> -->
-    <div class="gallery__grid">
-      <div class="placeholder reveal">Photo 1</div>
-      <div class="placeholder reveal">Photo 2</div>
-      <div class="placeholder reveal">Photo 3</div>
-      <div class="placeholder reveal">Photo 4</div>
-      <div class="placeholder reveal">Photo 5</div>
-      <div class="placeholder reveal">Photo 6</div>
+    <!-- Preview thumbnails are injected by script.js (first few photos). -->
+    <div class="gallery__grid" id="galleryPreview"></div>
+    <div class="gallery__more">
+      <button class="btn" id="viewAllBtn" type="button">View Full Gallery</button>
+    </div>
+  </section>
+
+  <!-- ===================== SHARE / HASHTAG ===================== -->
+  <section class="hashtag" id="hashtag" aria-label="Share your photos">
+    <div class="hashtag__overlay"></div>
+    <div class="hashtag__content reveal">
+      <p class="hashtag__msg">
+        We'd love to see our wedding through your eyes.
+        Please spread your photos using our official hashtag —
+      </p>
+      <p class="hashtag__tag">#JEDtooktherightSTEPH</p>
     </div>
   </section>
 
@@ -683,6 +699,26 @@
 
   <!-- Back to top -->
   <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <!-- ===================== FULL GALLERY MODAL ===================== -->
+  <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Full photo gallery" aria-hidden="true">
+    <div class="gallery-modal__bar">
+      <h3 class="gallery-modal__title">Gallery</h3>
+      <button class="gallery-modal__close" id="galleryModalClose" aria-label="Close gallery">&times;</button>
+    </div>
+    <div class="gallery-modal__scroll">
+      <!-- All photos are injected by script.js -->
+      <div class="gallery__grid" id="galleryFull"></div>
+    </div>
+  </div>
+
+  <!-- ===================== GALLERY LIGHTBOX ===================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+    <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <img class="lightbox__img" id="lbImg" src="" alt="" />
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>

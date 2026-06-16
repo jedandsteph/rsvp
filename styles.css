@@ -239,7 +239,7 @@ a { color: inherit; text-decoration: none; }
      It layers on top of the green gradient (gradient shows if the photo is missing).
      The .hero__overlay div adds a dark tint so the white text stays readable. */
   background:
-    url('img/hero.jpg') center / cover no-repeat,
+    url('img/hero-web.jpg') center / cover no-repeat,
     linear-gradient(135deg, #6f9a5f 0%, #426041 55%, #24372c 100%);
   background-position: center;
 }
@@ -255,6 +255,8 @@ a { color: inherit; text-decoration: none; }
       rgba(20,33,26,.58) 100%),
     rgba(36,55,44,.16);
 }
+.hero__photo { display: none; }   /* shown only on desktop (split layout) */
+.hero__sprig, .hero__ornament, .hero__petals { display: none; } /* desktop decorations */
 .hero__content { position: relative; z-index: 2; padding: 1.5rem 1.5rem 10.5rem; text-shadow: 0 2px 16px rgba(0,0,0,.35); }
 .hero__eyebrow {
   text-transform: uppercase;
@@ -268,8 +270,8 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(3.6rem, 13vw, 7.5rem);
   font-weight: 400;
   letter-spacing: .01em;
-  line-height: 1.4;                          /* room for the script swashes */
-  padding: .14em 0 .2em;                     /* so background-clip fills full glyphs */
+  line-height: 1.55;                         /* room for the script swashes */
+  padding: .16em .1em .55em;                 /* so background-clip fills full glyphs (incl. the long J/S tails) */
   color: #fff;                               /* fallback */
   /* white letters with a bright gold band that sweeps across them */
   background-image: linear-gradient(110deg,
@@ -400,6 +402,182 @@ a { color: inherit; text-decoration: none; }
   background: var(--white); animation: scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse { 0% { top: -50%; } 100% { top: 100%; } }
+
+/* ============================================================
+   HERO — DESKTOP SPLIT (photo left, text right on cream).
+   Mobile keeps the full-bleed centered overlay (base styles above).
+   ============================================================ */
+@media (min-width: 821px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: stretch;
+    text-align: left;
+    /* right panel: softer warm-greenish off-white (no stark white), with a
+       gentle sage wash flowing in from the photo side so the seam is natural */
+    background:
+      linear-gradient(100deg, rgba(206,222,198,.55) 0%, rgba(206,222,198,0) 42%),
+      linear-gradient(160deg, #eef1ea 0%, #e8eee0 52%, var(--bg-alt) 100%);
+  }
+  .hero__overlay { display: none; }        /* no dark tint over the light panel */
+  .hero__photo {
+    display: block;
+    grid-column: 1;
+    background: url('img/hero-web.jpg') center / cover no-repeat;
+    /* fade the photo itself to transparent on the right, so the panel's
+       cream→sage gradient (behind it) shows through. Eased multi-stop ramp
+       (not linear) so there's no hard band — a long, soft dissolve. */
+    -webkit-mask-image: linear-gradient(to right,
+        #000 40%,
+        rgba(0,0,0,.9) 56%,
+        rgba(0,0,0,.6) 70%,
+        rgba(0,0,0,.28) 85%,
+        rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to right,
+        #000 40%,
+        rgba(0,0,0,.9) 56%,
+        rgba(0,0,0,.6) 70%,
+        rgba(0,0,0,.28) 85%,
+        rgba(0,0,0,0) 100%);
+  }
+  .hero__content {
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;            /* centered within the panel */
+    max-width: 34rem;
+    padding: 2rem 4rem;
+    text-align: center;
+    color: var(--ink);
+    text-shadow: none;
+  }
+  /* recolour + retune typography so it reads and balances on the cream panel */
+  .hero__eyebrow {
+    color: var(--accent-dk);
+    opacity: 1;
+    font-size: .82rem;
+    letter-spacing: .42em;
+    margin-bottom: 1.2rem;
+  }
+  .hero__names {
+    text-shadow: none;
+    font-size: clamp(3.6rem, 5vw, 5rem);
+    line-height: 1.12;                     /* tight stack, no big gap */
+    padding: .06em .06em .26em;
+    margin: 0 0 .5rem;
+    /* dark green base with a sweeping gold glint */
+    background-image: linear-gradient(110deg,
+        #2f4636 0%, #2f4636 43%,
+        #caa45a 47%, #e8c56b 50%, #caa45a 53%,
+        #2f4636 57%, #2f4636 100%);
+  }
+  .hero__invite {
+    color: var(--muted);
+    text-shadow: none;
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    margin: 0 auto 1.7rem;
+    max-width: 34ch;
+  }
+  .hero__date { justify-content: center; margin-bottom: 1.6rem; }
+  .hero__date-main { border-color: rgba(36,55,44,.22); }
+  .hero__date-side,
+  .hero__date-month,
+  .hero__date-year { color: var(--ink); font-size: clamp(.92rem, 2.7vw, 1.08rem); }
+  .hero__date-day { font-size: clamp(3rem, 7.5vw, 4.1rem); }
+  .hero__venue {
+    color: var(--accent-dk);
+    opacity: 1;
+    font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero__scroll { display: none; }         /* the countdown below makes scrolling obvious */
+
+  /* nav links sit over the cream panel at the top — make them readable */
+  .nav:not(.scrolled) .nav__links a { color: var(--ink); }
+  .nav:not(.scrolled) .nav__links a:hover { color: var(--accent-dk); }
+
+  /* ---- decorative life (desktop only) ---- */
+  .hero__content { position: relative; }
+  /* soft warm glow behind the names so the panel has depth, not flat */
+  .hero__content::before {
+    content: "";
+    position: absolute; z-index: -1;
+    left: 50%; top: 38%;
+    width: 132%; height: 66%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center,
+        rgba(255,240,202,.6) 0%, rgba(255,240,202,0) 68%);
+    pointer-events: none;
+  }
+  /* botanical sprig topper */
+  .hero__sprig {
+    display: block;
+    width: 92px; margin: 0 auto .35rem;
+    color: #b9893f;
+    opacity: .9;
+  }
+  .hero__sprig svg { width: 100%; height: auto; display: block; }
+  /* gold divider with a small leaf */
+  .hero__ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: .85rem; margin: .15rem auto 1.4rem;
+  }
+  .hero__ornament::before, .hero__ornament::after {
+    content: ""; width: 56px; height: 1px;
+    background: linear-gradient(to right, rgba(185,137,63,0), rgba(185,137,63,.85));
+  }
+  .hero__ornament::after { transform: scaleX(-1); }
+  .hero__ornament-leaf { width: 14px; height: 14px; fill: #c9a45a; flex: none; }
+
+  /* staggered entrance (replaces the block reveal on desktop) */
+  .hero__content.reveal { opacity: 1; transform: none; transition: none; }
+  .hero__content > * { animation: heroFadeUp .9s cubic-bezier(.22,.61,.36,1) both; }
+  .hero__sprig   { animation-delay: .05s; }
+  .hero__eyebrow { animation-delay: .18s; }
+  .hero__ornament { animation-delay: .46s; }
+  .hero__invite  { animation-delay: .58s; }
+  .hero__date    { animation-delay: .72s; }
+  .hero__venue   { animation-delay: .86s; }
+  /* names: slide-in entrance + keep the gold shine sweep */
+  .hero__names {
+    transform: none;
+    animation: heroFadeUp .9s cubic-bezier(.22,.61,.36,1) .32s both,
+               nameShine 6s ease-in-out 1.4s infinite;
+  }
+
+  /* gently drifting petals */
+  .hero__petals {
+    display: block; position: absolute; inset: 0;
+    overflow: hidden; pointer-events: none; z-index: 1;
+  }
+  .hero__petals span {
+    position: absolute; top: -8%;
+    width: 12px; height: 12px;
+    border-radius: 0 100% 0 100%;
+    opacity: 0;
+    animation: petalFall linear infinite;
+  }
+  .hero__petals span:nth-child(1){ left:54%; width:10px;height:10px; background:#cdab5f; animation-duration:16s; animation-delay:0s;  }
+  .hero__petals span:nth-child(2){ left:62%; width:14px;height:14px; background:#a9b58a; animation-duration:20s; animation-delay:4s;  }
+  .hero__petals span:nth-child(3){ left:70%; width:9px; height:9px;  background:#d8b86a; animation-duration:18s; animation-delay:8s;  }
+  .hero__petals span:nth-child(4){ left:78%; width:12px;height:12px; background:#c2a14e; animation-duration:23s; animation-delay:2s;  }
+  .hero__petals span:nth-child(5){ left:85%; width:8px; height:8px;  background:#b6c197; animation-duration:19s; animation-delay:11s; }
+  .hero__petals span:nth-child(6){ left:92%; width:11px;height:11px; background:#d8b86a; animation-duration:21s; animation-delay:6s;  }
+  .hero__petals span:nth-child(7){ left:58%; width:8px; height:8px;  background:#c2a14e; animation-duration:24s; animation-delay:14s; }
+  .hero__petals span:nth-child(8){ left:74%; width:13px;height:13px; background:#a9b58a; animation-duration:22s; animation-delay:9s;  }
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes petalFall {
+  0%   { transform: translate(0, 0) rotate(0deg);        opacity: 0; }
+  12%  { opacity: .75; }
+  50%  { transform: translate(-26px, 52vh) rotate(180deg); }
+  88%  { opacity: .75; }
+  100% { transform: translate(16px, 108vh) rotate(360deg); opacity: 0; }
+}
 
 /* ============================================================
    INVITATION (split: photo + text)
@@ -960,7 +1138,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   text-align: center;
   color: #fff;
-  background: url('img/gallery/13.JPG') center 30% / cover no-repeat,
+  background: url('img/gallery/large/13.jpg') center 30% / cover no-repeat,
               var(--accent-dk);
 }
 /* soft dark fade at the bottom so the words stay readable while blending in */
@@ -1056,6 +1234,23 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   box-shadow: 0 12px 40px rgba(0,0,0,.04);
 }
+
+/* Embedded Google Form */
+.rsvp__form-embed {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0 12px 40px rgba(0,0,0,.04);
+}
+.rsvp__form-embed iframe {
+  display: block;
+  width: 100%;
+  height: 850px;            /* fits the whole form without inner scroll or big gap */
+  border: 0;
+}
 .field { margin-bottom: 1.4rem; }
 .field label { display: block; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
 .field input, .field select, .field textarea {
@@ -1092,6 +1287,15 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 .gifts__sub { color: var(--muted); letter-spacing: .04em; }
+.gifts__hint {
+  text-align: center;
+  margin-top: 1.1rem;
+  font-family: var(--sans);
+  font-size: .82rem;
+  letter-spacing: .08em;
+  color: var(--muted);
+  font-style: italic;
+}
 .gifts__qr { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; }
 .qr-card {
   background: var(--white);
@@ -1111,6 +1315,7 @@ a { color: inherit; text-decoration: none; }
   object-fit: contain;          /* keep QR square, never crop/stretch */
   border-radius: 8px;
   display: block;
+  cursor: zoom-in;              /* click to enlarge */
 }
 .qr-card figcaption {
   font-family: var(--sans);
@@ -1133,9 +1338,9 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .music-btn {
   position: fixed;
-  bottom: 1.5rem; left: 1.5rem;
+  bottom: 1.5rem; right: 1.5rem;     /* right side, small, out of the way */
   z-index: 90;
-  width: 52px; height: 52px;
+  width: 42px; height: 42px;
   border-radius: 50%;
   border: none;
   background: var(--accent);
@@ -1167,7 +1372,7 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .to-top {
   position: fixed;
-  bottom: 1.5rem; right: 1.5rem;
+  bottom: 4.4rem; right: 1.5rem;     /* stacked above the music button */
   z-index: 90;
   width: 46px; height: 46px;
   border-radius: 50%;
@@ -1202,6 +1407,8 @@ a { color: inherit; text-decoration: none; }
   .hero__scroll-line::after { animation: none; }
   .music-btn__bars i { animation: none; }
   .hero__names { animation: none; transform: none; transition: none; }
+  .hero__content > * { animation: none; }
+  .hero__petals { display: none; }
 }
 
 /* ============================================================
@@ -1277,6 +1484,8 @@ a { color: inherit; text-decoration: none; }
   /* Secondary Sponsors stay 2-up even on phones (Candle/Veil, Cord/Ribbon) */
   .ent-cards--2 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem .9rem; }
   .rsvp__form { padding: 1.75rem; }
+  /* Phone: fields stack so the form is taller — give the iframe more height */
+  .rsvp__form-embed iframe { height: 930px; }
   .section { padding: 4.5rem 1.25rem; }
   /* mobile hero: raise the photo focal point + tighten the text so the
      couple's faces stay clear above the words */

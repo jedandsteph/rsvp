@@ -203,25 +203,36 @@ if (lightbox) {
 }
 
 /* ============================================================
-   BACKGROUND MUSIC — autoplay on load, no button.
-   Browsers block autoplay-WITH-SOUND until the visitor interacts,
-   so: try to play immediately, and if blocked, start on their very
-   first tap/scroll/key. No on-screen control.
+   BACKGROUND MUSIC — autoplay, no button.
+   Browsers block autoplay-WITH-SOUND until the visitor interacts
+   with the page, and that interaction MUST be a real user gesture
+   (tap/click/key) — scroll alone does NOT count. So:
+     1) Start playing MUTED immediately (this is always allowed), so
+        the track is already running from page load.
+     2) Unmute on the visitor's first real gesture, so sound kicks in
+        instantly with no startup delay.
    ============================================================ */
 const audio = document.getElementById('bgAudio');
 if (audio) {
-  const playMusic = () => audio.play().catch(() => {});
+  // Gesture events the browser actually accepts as "user activation".
+  // (scroll / mousemove are intentionally NOT here — they don't count.)
+  const GESTURES = ['pointerdown', 'click', 'keydown', 'touchend'];
 
-  // 1) Optimistic autoplay on load
-  playMusic();
+  // 1) Muted autoplay so playback is already running on load.
+  audio.muted = true;
+  audio.play().catch(() => {});
 
-  // 2) Fallback: start on the visitor's first interaction
-  const events = ['click', 'scroll', 'keydown', 'touchstart'];
-  function startOnFirstInteraction() {
-    if (audio.paused) playMusic();
-    events.forEach(evt => window.removeEventListener(evt, startOnFirstInteraction));
+  // 2) Unmute on the first real interaction.
+  let soundOn = false;
+  function enableSound() {
+    if (soundOn) return;
+    soundOn = true;
+    audio.muted = false;
+    audio.volume = 1;
+    audio.play().catch(() => {});
+    GESTURES.forEach(evt => window.removeEventListener(evt, enableSound));
   }
-  events.forEach(evt => window.addEventListener(evt, startOnFirstInteraction, { passive: true }));
+  GESTURES.forEach(evt => window.addEventListener(evt, enableSound, { passive: true }));
 }
 
 /* ============================================================

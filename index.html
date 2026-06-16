@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Bump ?v= (date-time) whenever you edit styles.css so browsers load the latest -->
-  <link rel="stylesheet" href="styles.css?v=20260616-1211" />
+  <link rel="stylesheet" href="styles.css?v=20260616-1430" />
 </head>
 <body>
 
@@ -725,10 +725,10 @@
   </footer>
 
   <!-- ===================== BACKGROUND MUSIC ===================== -->
-  <!-- AUDIO: drop your song in an audio/ folder and update src below.
-       Browsers block autoplay-with-sound, so the song starts on the
-       visitor's first click/scroll/tap, and this button toggles it. -->
-  <audio id="bgAudio" loop preload="auto" autoplay>
+  <!-- AUDIO: background song. Browsers block autoplay-WITH-SOUND until the
+       visitor interacts, so we start it MUTED (allowed) on load and unmute on
+       the first real tap/click. `muted` is required for the muted autoplay. -->
+  <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
     <source src="song.mp3" type="audio/mpeg" />
   </audio>
 
@@ -756,6 +756,6 @@
   </div>
 
   <!-- Bump ?v= (date-time) whenever you edit script.js so browsers load the latest -->
-  <script src="script.js?v=20260616-1211"></script>
+  <script src="script.js?v=20260616-1430"></script>
 </body>
 </html>

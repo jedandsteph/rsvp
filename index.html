@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Bump ?v= (date-time) whenever you edit styles.css so browsers load the latest -->
-  <link rel="stylesheet" href="styles.css?v=20260615-1228" />
+  <link rel="stylesheet" href="styles.css?v=20260616-1148" />
 </head>
 <body>
 
@@ -48,7 +48,6 @@
     <a href="#hero" class="nav__brand" aria-label="Jed and Steph — back to top">Jed <span>&amp;</span> Steph</a>
     <nav class="nav__links">
       <a href="#story">Our Story</a>
-      <a href="#nuptial">Nuptial</a>
       <a href="#timeline">Timeline</a>
       <a href="#location">Venue</a>
       <a href="#entourage">Entourage</a>
@@ -86,39 +85,6 @@
     <div class="hero__scroll" aria-hidden="true">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ===================== INVITATION (hidden for now — remove style="display:none" to show again) ===================== -->
-  <section class="invite" id="invite" aria-label="Wedding invitation" style="display: none;">
-    <div class="invite__grid">
-      <div class="invite__photo reveal">
-        <!-- Swap to any portrait couple photo you like -->
-        <img src="img/OurStory.jpg" alt="Jed and Steph" onerror="this.style.display='none'" />
-      </div>
-
-      <div class="invite__text reveal">
-        <p class="invite__intro">Together with our families, we</p>
-        <h2 class="invite__names">Jed &amp; Steph</h2>
-        <p class="invite__request">
-          request the honor of your presence for a celebration of love
-          as we begin the first day of our lives together.
-        </p>
-
-        <div class="inv-date">
-          <div class="inv-date__side"><span class="inv-line"></span><p>Sunday</p></div>
-          <div class="inv-date__main">
-            <span class="inv-month">September</span>
-            <span class="inv-day">27</span>
-            <span class="inv-year">2026</span>
-          </div>
-          <div class="inv-date__side"><span class="inv-line"></span><p>1:00 PM</p></div>
-        </div>
-
-        <p class="invite__venue">Saint Bartholomew Parish Church</p>
-        <p class="invite__reception-label">Reception to follow at</p>
-        <p class="invite__venue">Marinilas Garden Reception</p>
-      </div>
     </div>
   </section>
 
@@ -166,113 +132,36 @@
     </div>
   </section>
 
-  <!-- ===================== NUPTIAL MASS ===================== -->
-  <section class="nuptial section" id="nuptial">
-    <p class="section__eyebrow center">The Ceremony</p>
-    <h2 class="section__title center">Nuptial Mass</h2>
-    <p class="nuptial__intro center">
-      We warmly invite you to witness the celebration of our Holy Matrimony.
-    </p>
-
-    <div class="nuptial__card reveal">
-      <div class="nuptial__head">
-        <p class="nuptial__where">Saint Bartholomew Parish Church</p>
-        <p class="nuptial__when">Baao, Camarines Sur · Sunday, September 27, 2026 · 1:00 PM</p>
-      </div>
-
-      <!-- Order of the Nuptial Mass -->
-      <ol class="nuptial__order">
-        <li><span>Processional</span><small>Entrance of the wedding party</small></li>
-        <li><span>Opening Rites</span><small>Welcome &amp; greeting</small></li>
-        <li><span>Liturgy of the Word</span><small>Scripture readings &amp; homily</small></li>
-        <li><span>Rite of Marriage</span><small>Exchange of vows &amp; rings</small></li>
-        <li><span>Liturgy of the Eucharist</span><small>Holy Communion</small></li>
-        <li><span>Nuptial Blessing</span><small>Blessing of the couple</small></li>
-        <li><span>Recessional</span><small>Presentation of the newlyweds</small></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===================== WEDDING TIMELINE ===================== -->
-  <section class="timeline section" id="timeline">
-    <p class="section__eyebrow center">The Big Day</p>
-    <h2 class="section__title center">Wedding Timeline</h2>
-
-    <div class="timeline__track">
-      <div class="tl reveal">
-        <div class="tl__time">12:30 PM</div>
-        <div class="tl__dot"><span>⛪</span></div>
-        <div class="tl__body"><h3>Guest Arrival</h3><p>Please be seated before the ceremony begins.</p></div>
-      </div>
-      <div class="tl reveal">
-        <div class="tl__time">1:00 PM</div>
-        <div class="tl__dot"><span>💍</span></div>
-        <div class="tl__body"><h3>Nuptial Mass</h3><p>The ceremony &amp; exchange of vows.</p></div>
-      </div>
-      <div class="tl reveal">
-        <div class="tl__time">2:30 PM</div>
-        <div class="tl__dot"><span>📸</span></div>
-        <div class="tl__body"><h3>Photos &amp; Cocktails</h3><p>Welcome drinks while we capture some memories.</p></div>
-      </div>
-      <div class="tl reveal">
-        <div class="tl__time">3:00 PM</div>
-        <div class="tl__dot"><span>🥂</span></div>
-        <div class="tl__body"><h3>Reception &amp; Dinner</h3><p>Toasts, dinner, and heartfelt speeches.</p></div>
-      </div>
-      <div class="tl reveal">
-        <div class="tl__time">5:30 PM</div>
-        <div class="tl__dot"><span>🎉</span></div>
-        <div class="tl__body"><h3>Dancing &amp; Celebration</h3><p>Let's dance the night away!</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== VENUE / CHURCH + MAP ===================== -->
-  <section class="location section" id="location">
-    <p class="section__eyebrow center">Getting There</p>
-    <h2 class="section__title center">Ceremony &amp; Venue</h2>
-
-    <div class="location__grid">
-      <!-- CEREMONY / CHURCH -->
-      <div class="location__card reveal">
-        <img class="location__photo" src="img/details/church.jpg" alt="Saint Bartholomew Parish Church" onerror="this.style.display='none'" />
-        <span class="location__tag">Ceremony</span>
-        <h3>Saint Bartholomew Parish Church</h3>
-        <p class="location__addr">Baao, Camarines Sur</p>
-        <p class="location__time">Sunday, September 27, 2026 · 1:00 PM</p>
-        <a class="card__link" href="https://maps.google.com/?q=Saint+Bartholomew+Parish+Church+Baao+Camarines+Sur"
-           target="_blank" rel="noopener">Open in Google Maps →</a>
-        <div class="location__map">
-          <iframe
-            title="Ceremony location map"
-            src="https://www.google.com/maps?q=Saint+Bartholomew+Parish+Church+Baao,+Camarines+Sur&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-
-      <!-- RECEPTION -->
-      <div class="location__card reveal">
-        <img class="location__photo" src="img/details/receiption.jpg" alt="Marinilas Garden Reception" onerror="this.style.display='none'" />
-        <span class="location__tag">Reception</span>
-        <h3>Marinilas Garden Reception</h3>
-        <p class="location__addr">Zone 6, San Vicente, Baao, Camarines Sur</p>
-        <p class="location__time">Sunday, September 27, 2026 · 3:00 PM</p>
-        <a class="card__link" href="https://maps.google.com/?q=Marinilas+Garden+Reception+San+Vicente+Baao+Camarines+Sur"
-           target="_blank" rel="noopener">Open in Google Maps →</a>
-        <div class="location__map">
-          <iframe
-            title="Reception location map"
-            src="https://www.google.com/maps?q=Marinilas+Garden+Reception,+San+Vicente,+Baao,+Camarines+Sur&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== ENTOURAGE ===================== -->
   <section class="entourage section" id="entourage">
     <p class="section__eyebrow center">With Us at the Altar</p>
     <h2 class="section__title center">The Entourage</h2>
+
+    <!-- Our Beloved Parents -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Our Beloved Parents</h3>
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Parents of the Groom</p>
+          <ul class="ent-list">
+            <li>Benjamin E. Gonowon &#8224;</li>
+            <li>Fatima L. Gonowon</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Parents of the Bride</p>
+          <ul class="ent-list">
+            <li>Mr. &amp; Mrs. Bedural</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Officiating Priest -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Officiating Priest</h3>
+      <div class="ent-col"><p class="ent-name">To be announced</p></div>
+    </div>
 
     <!-- Principal Sponsors -->
     <div class="ent-block reveal">
@@ -382,20 +271,122 @@
 
     <div class="ent-divider reveal" aria-hidden="true"></div>
 
-    <!-- Little ones & Bearers -->
+    <!-- Little Ones -->
     <div class="ent-block reveal">
-      <h3 class="ent-block__title">Bearers &amp; Little Ones</h3>
-      <div class="ent-cards ent-cards--4">
-        <div class="ent-card"><p class="ent-role">Little Bride &amp; Groom</p><p class="ent-name">Stella Marizz Ivanhoe<br />&amp; Sean Eldridge Bedural</p></div>
-        <div class="ent-card"><p class="ent-role">Bible Bearer</p><p class="ent-name">Gavin Lucho Laniog</p></div>
-        <div class="ent-card"><p class="ent-role">Coin Bearer</p><p class="ent-name">Edsel Beroin Jr.</p></div>
-        <div class="ent-card"><p class="ent-role">Ring Bearer</p><p class="ent-name">Mattias Andres Guttierez</p></div>
+      <h3 class="ent-block__title">Little Ones</h3>
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Little Bride</p>
+          <ul class="ent-list"><li>Stella Marizz Ivanhoe</li></ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Little Groom</p>
+          <ul class="ent-list"><li>Sean Eldridge Bedural</li></ul>
+        </div>
       </div>
-      <div class="ent-card ent-card--wide">
-        <p class="ent-role">Flower Girls &amp; Boys</p>
-        <div class="ent-pairs">
-          <p class="ent-name">Luna Marie Ivanhoe &amp; Rhett Caleb Cayab</p>
-          <p class="ent-name">Judea Quinna Laniog &amp; Elon Ishmael Rivera</p>
+    </div>
+
+    <!-- Bearers -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Bearers</h3>
+      <div class="ent-solo">
+        <p class="ent-role">Bible Bearer</p>
+        <ul class="ent-list"><li>Gavin Lucho Laniog</li></ul>
+      </div>
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Coin Bearer</p>
+          <ul class="ent-list"><li>Edsel Beroin Jr.</li></ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Ring Bearer</p>
+          <ul class="ent-list"><li>Mattias Andres Guttierez</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flower Girls & Boys -->
+    <div class="ent-block reveal">
+      <h3 class="ent-block__title">Flower Girls &amp; Boys</h3>
+      <div class="ent-two">
+        <div class="ent-col">
+          <p class="ent-role">Flower Girls</p>
+          <ul class="ent-list">
+            <li>Luna Marie Ivanhoe</li>
+            <li>Judea Quinna Laniog</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Flower Boys</p>
+          <ul class="ent-list">
+            <li>Rhett Caleb Cayab</li>
+            <li>Elon Ishmael Rivera</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SHARE / HASHTAG ===================== -->
+  <section class="hashtag" id="hashtag" aria-label="Share your photos">
+    <div class="hashtag__overlay"></div>
+    <div class="hashtag__content reveal">
+      <p class="hashtag__msg">
+        We'd love to see our wedding through your eyes.
+        Please spread your photos using our official hashtag —
+      </p>
+      <p class="hashtag__tag">#JEDtooktherightSTEPH</p>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery section" id="gallery">
+    <p class="section__eyebrow center">Moments</p>
+    <h2 class="section__title center">Gallery</h2>
+    <!-- Preview thumbnails are injected by script.js (first few photos). -->
+    <div class="gallery__grid" id="galleryPreview"></div>
+    <div class="gallery__more">
+      <button class="btn" id="viewAllBtn" type="button">View Full Gallery</button>
+    </div>
+  </section>
+
+  <!-- ===================== VENUE / CHURCH + MAP ===================== -->
+  <section class="location section" id="location">
+    <p class="section__eyebrow center">Getting There</p>
+    <h2 class="section__title center">Ceremony &amp; Venue</h2>
+
+    <div class="location__grid">
+      <!-- CEREMONY / CHURCH -->
+      <div class="location__card reveal">
+        <img class="location__photo" src="img/details/church.jpg" alt="Saint Bartholomew Parish Church" onerror="this.style.display='none'" />
+        <span class="location__tag">Ceremony</span>
+        <h3>Saint Bartholomew Parish Church</h3>
+        <p class="location__addr">Baao, Camarines Sur</p>
+        <p class="location__time">Sunday, September 27, 2026 · 1:00 PM</p>
+        <a class="card__link" href="https://maps.google.com/?q=Saint+Bartholomew+Parish+Church+Baao+Camarines+Sur"
+           target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="location__map">
+          <iframe
+            title="Ceremony location map"
+            src="https://www.google.com/maps?q=Saint+Bartholomew+Parish+Church+Baao,+Camarines+Sur&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- RECEPTION -->
+      <div class="location__card reveal">
+        <img class="location__photo" src="img/details/receiption.jpg" alt="Marinilas Garden Reception" onerror="this.style.display='none'" />
+        <span class="location__tag">Reception</span>
+        <h3>Marinilas Garden Reception</h3>
+        <p class="location__addr">Zone 6, San Vicente, Baao, Camarines Sur</p>
+        <p class="location__time">Sunday, September 27, 2026 · 3:00 PM</p>
+        <a class="card__link" href="https://maps.google.com/?q=Marinilas+Garden+Reception+San+Vicente+Baao+Camarines+Sur"
+           target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="location__map">
+          <iframe
+            title="Reception location map"
+            src="https://www.google.com/maps?q=Marinilas+Garden+Reception,+San+Vicente,+Baao,+Camarines+Sur&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -454,28 +445,75 @@
            No casual jeans, shorts, or flip-flops.</p>
       </div>
     </div>
+
+    <figure class="attire__image reveal">
+      <img src="img/wedding-attire-guide.jpeg" alt="Wedding attire guide"
+           loading="lazy" decoding="async" onerror="this.style.display='none'" />
+    </figure>
   </section>
 
-  <!-- ===================== GALLERY ===================== -->
-  <section class="gallery section" id="gallery">
-    <p class="section__eyebrow center">Moments</p>
-    <h2 class="section__title center">Gallery</h2>
-    <!-- Preview thumbnails are injected by script.js (first few photos). -->
-    <div class="gallery__grid" id="galleryPreview"></div>
-    <div class="gallery__more">
-      <button class="btn" id="viewAllBtn" type="button">View Full Gallery</button>
+  <!-- ===================== WEDDING TIMELINE ===================== -->
+  <section class="timeline section" id="timeline">
+    <p class="section__eyebrow center">The Big Day</p>
+    <h2 class="section__title center">Wedding Timeline</h2>
+
+    <div class="timeline__track">
+      <div class="tl reveal">
+        <div class="tl__time">12:30 PM</div>
+        <div class="tl__dot"><span>⛪</span></div>
+        <div class="tl__body"><h3>Guest Arrival</h3><p>Please be seated before the ceremony begins.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">1:00 PM</div>
+        <div class="tl__dot"><span>💍</span></div>
+        <div class="tl__body"><h3>Nuptial Mass</h3><p>The ceremony &amp; exchange of vows.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">2:30 PM</div>
+        <div class="tl__dot"><span>📸</span></div>
+        <div class="tl__body"><h3>Photos &amp; Cocktails</h3><p>Welcome drinks while we capture some memories.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">3:00 PM</div>
+        <div class="tl__dot"><span>🥂</span></div>
+        <div class="tl__body"><h3>Reception &amp; Dinner</h3><p>Toasts, dinner, and heartfelt speeches.</p></div>
+      </div>
+      <div class="tl reveal">
+        <div class="tl__time">5:30 PM</div>
+        <div class="tl__dot"><span>🎉</span></div>
+        <div class="tl__body"><h3>Dancing &amp; Celebration</h3><p>Let's dance the night away!</p></div>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== SHARE / HASHTAG ===================== -->
-  <section class="hashtag" id="hashtag" aria-label="Share your photos">
-    <div class="hashtag__overlay"></div>
-    <div class="hashtag__content reveal">
-      <p class="hashtag__msg">
-        We'd love to see our wedding through your eyes.
-        Please spread your photos using our official hashtag —
+  <!-- ===================== GIFTS ===================== -->
+  <section class="gifts section" id="gifts">
+    <p class="section__eyebrow center">With Gratitude</p>
+    <h2 class="section__title center">A Note on Gifts</h2>
+
+    <div class="gifts__note reveal">
+      <p class="gifts__poem">
+        As love is what the day is all about,<br />
+        your presence is one we can't celebrate without.
       </p>
-      <p class="hashtag__tag">#JEDtooktherightSTEPH</p>
+      <p class="gifts__poem">
+        But should you still believe that a gift is worth giving,<br />
+        a small envelope for our future is a delightful blessing.
+      </p>
+      <p class="gifts__sub">For convenience, here are our QR codes for monetary gifts.</p>
+    </div>
+
+    <!-- QR CODES: replace each placeholder with your QR image,
+         e.g. <img src="images/gcash-qr.png" alt="GCash QR" /> -->
+    <div class="gifts__qr reveal">
+      <figure class="qr-card">
+        <div class="placeholder qr-card__img">QR Code 1</div>
+        <figcaption>GCash</figcaption>
+      </figure>
+      <figure class="qr-card">
+        <div class="placeholder qr-card__img">QR Code 2</div>
+        <figcaption>Maya / Bank</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -603,37 +641,6 @@
     </div>
   </section>
 
-  <!-- ===================== GIFTS ===================== -->
-  <section class="gifts section" id="gifts">
-    <p class="section__eyebrow center">With Gratitude</p>
-    <h2 class="section__title center">A Note on Gifts</h2>
-
-    <div class="gifts__note reveal">
-      <p class="gifts__poem">
-        As love is what the day is all about,<br />
-        your presence is one we can't celebrate without.
-      </p>
-      <p class="gifts__poem">
-        But should you still believe that a gift is worth giving,<br />
-        a small envelope for our future is a delightful blessing.
-      </p>
-      <p class="gifts__sub">For convenience, here are our QR codes for monetary gifts.</p>
-    </div>
-
-    <!-- QR CODES: replace each placeholder with your QR image,
-         e.g. <img src="images/gcash-qr.png" alt="GCash QR" /> -->
-    <div class="gifts__qr reveal">
-      <figure class="qr-card">
-        <div class="placeholder qr-card__img">QR Code 1</div>
-        <figcaption>GCash</figcaption>
-      </figure>
-      <figure class="qr-card">
-        <div class="placeholder qr-card__img">QR Code 2</div>
-        <figcaption>Maya / Bank</figcaption>
-      </figure>
-    </div>
-  </section>
-
   <!-- ===================== RSVP ===================== -->
   <section class="rsvp section" id="rsvp">
     <p class="section__eyebrow center">Be Our Guest</p>
@@ -677,6 +684,39 @@
     </form>
   </section>
 
+  <!-- ===================== INVITATION (hidden for now — remove style="display:none" to show again) ===================== -->
+  <section class="invite" id="invite" aria-label="Wedding invitation" style="display: none;">
+    <div class="invite__grid">
+      <div class="invite__photo reveal">
+        <!-- Swap to any portrait couple photo you like -->
+        <img src="img/OurStory.jpg" alt="Jed and Steph" onerror="this.style.display='none'" />
+      </div>
+
+      <div class="invite__text reveal">
+        <p class="invite__intro">Together with our families, we</p>
+        <h2 class="invite__names">Jed &amp; Steph</h2>
+        <p class="invite__request">
+          request the honor of your presence for a celebration of love
+          as we begin the first day of our lives together.
+        </p>
+
+        <div class="inv-date">
+          <div class="inv-date__side"><span class="inv-line"></span><p>Sunday</p></div>
+          <div class="inv-date__main">
+            <span class="inv-month">September</span>
+            <span class="inv-day">27</span>
+            <span class="inv-year">2026</span>
+          </div>
+          <div class="inv-date__side"><span class="inv-line"></span><p>1:00 PM</p></div>
+        </div>
+
+        <p class="invite__venue">Saint Bartholomew Parish Church</p>
+        <p class="invite__reception-label">Reception to follow at</p>
+        <p class="invite__venue">Marinilas Garden Reception</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <h3 class="footer__names">Jed &amp; Steph</h3>
@@ -716,6 +756,6 @@
   </div>
 
   <!-- Bump ?v= (date-time) whenever you edit script.js so browsers load the latest -->
-  <script src="script.js?v=20260615-1228"></script>
+  <script src="script.js?v=20260616-1148"></script>
 </body>
 </html>

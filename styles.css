@@ -268,36 +268,43 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(3.6rem, 13vw, 7.5rem);
   font-weight: 400;
   letter-spacing: .01em;
-  line-height: 1.05;
-  color: #fff;
-  /* warm gold halo behind the script names + dark shadow for legibility */
+  line-height: 1.4;                          /* room for the script swashes */
+  padding: .14em 0 .2em;                     /* so background-clip fills full glyphs */
+  color: #fff;                               /* fallback */
+  /* white letters with a bright gold band that sweeps across them */
+  background-image: linear-gradient(110deg,
+      #ffffff 0%, #ffffff 43%,
+      #fff4cf 47%, #ffe39a 50%, #fff4cf 53%,  /* the gold glint */
+      #ffffff 57%, #ffffff 100%);
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* steady warm gold halo + dark shadow for legibility */
   text-shadow:
     0 2px 14px rgba(0,0,0,.5),
-    0 0 18px rgba(232,202,128,.7),
-    0 0 42px rgba(232,202,128,.45);
-  animation: nameGlow 4.5s ease-in-out infinite;
+    0 0 22px rgba(232,202,128,.55),
+    0 0 46px rgba(232,202,128,.32);
+  animation: nameShine 6s ease-in-out infinite;
+  transform: scale(.9);                      /* entrance start (zooms to 1 on load) */
+  transition: transform 1.3s cubic-bezier(.22,.61,.36,1);
 }
-/* the "&" is solid gold — the clear, visible accent */
+/* fade + zoom-in entrance, synced with the hero reveal */
+.hero__content.is-visible .hero__names { transform: scale(1); }
+/* the "&" stays solid gold — the clear accent */
 .hero__names span {
   display: inline-block;
   font-weight: 400;
   margin: 0 .12em;
   color: #e8c56b;
+  -webkit-text-fill-color: #e8c56b;
 }
-/* gentle shimmer — the gold glow softly breathes */
-@keyframes nameGlow {
-  0%, 100% {
-    text-shadow:
-      0 2px 14px rgba(0,0,0,.5),
-      0 0 16px rgba(232,202,128,.55),
-      0 0 38px rgba(232,202,128,.32);
-  }
-  50% {
-    text-shadow:
-      0 2px 14px rgba(0,0,0,.5),
-      0 0 28px rgba(232,202,128,.92),
-      0 0 58px rgba(232,202,128,.55);
-  }
+/* elegant glint of light sweeping across the names */
+@keyframes nameShine {
+  0%   { background-position: 150% 0; }
+  60%  { background-position: -50% 0; }
+  100% { background-position: -50% 0; }
 }
 /* formal invite line under the names */
 .hero__invite {
@@ -682,6 +689,7 @@ a { color: inherit; text-decoration: none; }
 /* Two columns */
 .ent-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; }
 .ent-col { text-align: center; }
+.ent-solo { text-align: center; margin-bottom: 1.6rem; }   /* single centered role (e.g. Bible Bearer) */
 
 /* Names — italic serif, airy, no dividing lines */
 .ent-list { list-style: none; }
@@ -748,6 +756,14 @@ a { color: inherit; text-decoration: none; }
 .attire__icon svg { width: 46px; height: 46px; }
 .attire__card h3 { font-size: 1.5rem; margin-bottom: .5rem; color: var(--ink); }
 .attire__card p { color: var(--muted); font-size: .95rem; }
+/* attire guide image */
+.attire__image { max-width: 760px; margin: 2.75rem auto 0; }
+.attire__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 18px 45px rgba(36,55,44,.12);
+}
 
 /* ============================================================
    NUPTIAL MASS
@@ -1181,7 +1197,7 @@ a { color: inherit; text-decoration: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__scroll-line::after { animation: none; }
   .music-btn__bars i { animation: none; }
-  .hero__names { animation: none; }
+  .hero__names { animation: none; transform: none; transition: none; }
 }
 
 /* ============================================================

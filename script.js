@@ -2,7 +2,7 @@
    CONFIG — change the wedding date here (YYYY, MM-1, DD, HH, MM)
    Note: month is 0-indexed, so September = 8
    ============================================================ */
-const WEDDING_DATE = new Date(2026, 8, 27, 13, 0, 0); // Sep 27, 2026, 1:00 PM (ceremony)
+const WEDDING_DATE = new Date(2026, 8, 26, 13, 0, 0); // Sep 26, 2026, 1:00 PM (ceremony)
 
 /* ============================================================
    PRELOADER — fade out the animated rings once the page is ready.

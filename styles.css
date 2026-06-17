@@ -865,6 +865,9 @@ a { color: inherit; text-decoration: none; }
 .ent-two > .ent-col:first-child { text-align: right; }
 .ent-two > .ent-col:last-child  { text-align: left; }
 .ent-solo { text-align: center; margin-bottom: 1.1rem; }   /* single centered role (e.g. Bible Bearer) */
+/* stacked role rows (e.g. Mass Offerors: Eggs/Cake, Fruits/Wine…) breathe apart */
+.ent-two + .ent-two,
+.ent-two + .ent-solo { margin-top: 1.4rem; }
 
 /* Names — italic serif, airy, no dividing lines */
 .ent-list { list-style: none; }

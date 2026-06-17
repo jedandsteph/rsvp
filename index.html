@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Bump ?v= (date-time) whenever you edit styles.css so browsers load the latest -->
-  <link rel="stylesheet" href="styles.css?v=20260617-1845" />
+  <link rel="stylesheet" href="styles.css?v=20260617-2230" />
 </head>
 <body>
 
@@ -160,14 +160,12 @@
       <h3 class="ent-block__title">Our Beloved Parents</h3>
       <div class="ent-two">
         <div class="ent-col">
-          <p class="ent-role">Parents of the Groom</p>
           <ul class="ent-list">
             <li>Benjamin E. Gonowon &#8224;</li>
             <li>Fatima L. Gonowon</li>
           </ul>
         </div>
         <div class="ent-col">
-          <p class="ent-role">Parents of the Bride</p>
           <ul class="ent-list">
             <li>Rolando Bedural &#8224;</li>
             <li>Marieta Bedural</li>
@@ -229,20 +227,9 @@
 
     <div class="ent-divider reveal" aria-hidden="true"></div>
 
-    <!-- Bride's Maids & Groom's Men -->
+    <!-- Groom's Men & Bride's Maids -->
     <div class="ent-block reveal">
       <div class="ent-two">
-        <div class="ent-col">
-          <p class="ent-role">Bride's Maids</p>
-          <ul class="ent-list">
-            <li>Chero-Vee L. Gonowon</li>
-            <li>Hazel Saulon</li>
-            <li>Christin Joy L. Gonowon</li>
-            <li>Cheska Mae L. Gonowon</li>
-            <li>Reynalyn Sardalla</li>
-            <li>Kate Danielle Bedural</li>
-          </ul>
-        </div>
         <div class="ent-col">
           <p class="ent-role">Groom's Men</p>
           <ul class="ent-list">
@@ -252,6 +239,17 @@
             <li>Marc Johnrick Gamba</li>
             <li>Jude A. Agapito</li>
             <li>Areeb Frederick Bedural</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Bride's Maids</p>
+          <ul class="ent-list">
+            <li>Chero-Vee L. Gonowon</li>
+            <li>Hazel Saulon</li>
+            <li>Christin Joy L. Gonowon</li>
+            <li>Cheska Mae L. Gonowon</li>
+            <li>Reynalyn Sardalla</li>
+            <li>Kate Danielle Bedural</li>
           </ul>
         </div>
       </div>
@@ -270,17 +268,16 @@
 
     <div class="ent-divider reveal" aria-hidden="true"></div>
 
-    <!-- Little Ones -->
+    <!-- Little Groom & Little Bride -->
     <div class="ent-block reveal">
-      <h3 class="ent-block__title">Little Ones</h3>
       <div class="ent-two">
-        <div class="ent-col">
-          <p class="ent-role">Little Bride</p>
-          <ul class="ent-list"><li>Stella Marizz G. Ivanhoe</li></ul>
-        </div>
         <div class="ent-col">
           <p class="ent-role">Little Groom</p>
           <ul class="ent-list"><li>Sean Eldridge Bedural</li></ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Little Bride</p>
+          <ul class="ent-list"><li>Stella Marizz G. Ivanhoe</li></ul>
         </div>
       </div>
     </div>
@@ -309,14 +306,12 @@
       <h3 class="ent-block__title">Flower Girls &amp; Boys</h3>
       <div class="ent-two">
         <div class="ent-col">
-          <p class="ent-role">Flower Girls</p>
           <ul class="ent-list">
             <li>Luna Marie G. Ivanhoe</li>
             <li>Judea Quinna A. Laniog</li>
           </ul>
         </div>
         <div class="ent-col">
-          <p class="ent-role">Flower Boys</p>
           <ul class="ent-list">
             <li>Rhett Caleb Cayab</li>
             <li>Elon Ishmael A. Rivera</li>
@@ -331,17 +326,17 @@
     <div class="ent-block reveal">
       <div class="ent-two">
         <div class="ent-col">
-          <p class="ent-role">Usherettes</p>
-          <ul class="ent-list">
-            <li>Mary Grace L. Agapito</li>
-            <li>Edwel Chelsea Ditan</li>
-          </ul>
-        </div>
-        <div class="ent-col">
           <p class="ent-role">Ushers</p>
           <ul class="ent-list">
             <li>Lyndon Bedural Jr.</li>
             <li>Fitz Jacob Bedural</li>
+          </ul>
+        </div>
+        <div class="ent-col">
+          <p class="ent-role">Usherettes</p>
+          <ul class="ent-list">
+            <li>Mary Grace L. Agapito</li>
+            <li>Edwel Chelsea Ditan</li>
           </ul>
         </div>
       </div>
@@ -369,6 +364,25 @@
     <div class="gallery__more">
       <button class="btn" id="viewAllBtn" type="button">View Full Gallery</button>
     </div>
+  </section>
+
+  <!-- ===================== GUEST PHOTO UPLOAD ===================== -->
+  <section class="photoshare section" id="photos">
+    <p class="section__eyebrow center">Be Our Photographer</p>
+    <h2 class="section__title center">Send Us Your Photos</h2>
+    <p class="photoshare__intro center">
+      Captured a candid or heartfelt moment? Scan the code to upload your photos
+      to our shared album — we'd love to relive the day through your eyes. 📸
+    </p>
+    <div class="photoshare__qr reveal">
+      <figure class="qr-card">
+        <img class="qr-card__img" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;margin=10&amp;color=24372c&amp;bgcolor=ffffff&amp;data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F16ZeS9CXMhJeFrfx0AUULa4N6qCsBNY_X%3Fusp%3Ddrive_link" alt="Scan to upload your photos" loading="lazy" decoding="async" />
+        <figcaption>Scan to upload</figcaption>
+      </figure>
+    </div>
+    <p class="photoshare__hint">On this phone?
+      <a class="photoshare__link" href="https://drive.google.com/drive/folders/16ZeS9CXMhJeFrfx0AUULa4N6qCsBNY_X?usp=drive_link" target="_blank" rel="noopener">Open the upload album →</a>
+    </p>
   </section>
 
   <!-- ===================== VENUE / CHURCH + MAP ===================== -->
@@ -762,6 +776,6 @@
   </div>
 
   <!-- Bump ?v= (date-time) whenever you edit script.js so browsers load the latest -->
-  <script src="script.js?v=20260617-1845"></script>
+  <script src="script.js?v=20260617-2230"></script>
 </body>
 </html>

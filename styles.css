@@ -861,6 +861,9 @@ a { color: inherit; text-decoration: none; }
 /* Two columns */
 .ent-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 2.5rem; }
 .ent-col { text-align: center; }
+/* invitation-style mirrored alignment: the two columns hug the centre gutter */
+.ent-two > .ent-col:first-child { text-align: right; }
+.ent-two > .ent-col:last-child  { text-align: left; }
 .ent-solo { text-align: center; margin-bottom: 1.1rem; }   /* single centered role (e.g. Bible Bearer) */
 
 /* Names — italic serif, airy, no dividing lines */
@@ -869,9 +872,9 @@ a { color: inherit; text-decoration: none; }
 .ent-name {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.32rem;
   color: var(--ink);
-  line-height: 1.4;
+  line-height: 1.5;
   padding: .04rem 0;
 }
 
@@ -1300,6 +1303,18 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
   font-style: italic;
 }
+
+/* ===== Guest photo upload ===== */
+.photoshare { background: var(--bg-alt); text-align: center; }
+.photoshare__intro { color: var(--muted); max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.photoshare__qr { display: flex; justify-content: center; }
+.photoshare__hint { margin-top: 1.5rem; font-size: .9rem; color: var(--muted); }
+.photoshare__link {
+  color: var(--accent-dk); font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid currentColor; padding-bottom: 1px;
+  transition: color .25s;
+}
+.photoshare__link:hover { color: var(--accent); }
 .gifts__qr { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; }
 .qr-card {
   background: var(--white);
@@ -1483,9 +1498,10 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 480px) {
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }  /* 2-up on phones */
-  .ent-two { gap: 1.25rem .7rem; }
-  /* slightly smaller names + tighter columns so long full names fit one line */
-  .ent-list li, .ent-name { font-size: .88rem; line-height: 1.35; }
+  /* phones: keep the 2-column mirror, tighten the centre gutter, and use a
+     size that still fits the longest names (Cormorant is a narrow serif) */
+  .ent-two { gap: .9rem .5rem; }
+  .ent-list li, .ent-name { font-size: .92rem; line-height: 1.4; }
   /* keep all 5 colour swatches on one line on phones */
   .attire__palette { gap: .5rem; flex-wrap: nowrap; }
   .swatch__dot { width: 46px; height: 46px; border-width: 2px; }

@@ -239,7 +239,7 @@ a { color: inherit; text-decoration: none; }
      It layers on top of the green gradient (gradient shows if the photo is missing).
      The .hero__overlay div adds a dark tint so the white text stays readable. */
   background:
-    url('img/hero-web.jpg') center / cover no-repeat,
+    url('img/hero-web.jpg?v=20260618-1330') center / cover no-repeat,
     linear-gradient(135deg, #6f9a5f 0%, #426041 55%, #24372c 100%);
   background-position: center;
 }
@@ -423,7 +423,7 @@ a { color: inherit; text-decoration: none; }
   .hero__photo {
     display: block;
     grid-column: 1;
-    background: url('img/hero-web.jpg') 62% center / cover no-repeat;
+    background: url('img/hero-web.jpg?v=20260618-1330') 62% center / cover no-repeat;
     /* fade the photo to transparent on the RIGHT and the BOTTOM so it dissolves
        into the panel + countdown sage with no hard edges (the bg shows through). */
     -webkit-mask-image:
@@ -1497,6 +1497,16 @@ a { color: inherit; text-decoration: none; }
   .attire__grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .ent-cards--3, .ent-cards--4 { grid-template-columns: repeat(2, 1fr); }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Offerors / Readers: many short role+name pairs read badly in the 2-column
+   mirror on phones (long titles like "BASKET OF GROCERIES" wrap and the rows
+   go ragged). Collapse THESE blocks only to a clean centred single column. */
+@media (max-width: 600px) {
+  .ent-block--stack .ent-two { grid-template-columns: 1fr; gap: 1.35rem; }
+  .ent-block--stack .ent-two > .ent-col:first-child,
+  .ent-block--stack .ent-two > .ent-col:last-child { text-align: center; }
+  .ent-block--stack .ent-role { letter-spacing: .15em; }
 }
 
 @media (max-width: 480px) {

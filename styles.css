@@ -1530,8 +1530,10 @@ a { color: inherit; text-decoration: none; }
      couple's faces stay clear above the words */
   .hero { background-position: center 15%; }
   .hero__eyebrow { font-size: .62rem; letter-spacing: .3em; margin-bottom: .7rem; }
-  .hero__names { font-size: 3.1rem; }
-  .hero__invite { font-size: .92rem; margin: .5rem auto .8rem; }
+  /* tighter stack: kill the big default h1 gap below the names so the invite
+     and date rise up (no empty band under "Jed & Steph") */
+  .hero__names { font-size: 3.1rem; line-height: 1.18; padding: .1em .06em .3em; margin: 0 0 .15rem; }
+  .hero__invite { font-size: .92rem; margin: .35rem auto .8rem; }
   .hero__date { margin-bottom: .9rem; gap: .7rem; }
   .hero__venue { margin-bottom: 1rem; }
   /* keep the Our Story photo edge-to-edge at this narrower padding */

@@ -177,8 +177,8 @@ if (lightbox) {
     if (fullGrid) fullGrid.appendChild(buildThumb(i));
   });
 
-  // QR codes (Gifts section): click to enlarge in the single-image viewer
-  document.querySelectorAll('.qr-card__img').forEach(img => {
+  // Single-image zoom (QR codes + the wedding attire guide): click to enlarge
+  document.querySelectorAll('.qr-card__img, .zoomable').forEach(img => {
     img.addEventListener('click', () => openSolo(img.src, img.alt));
   });
 

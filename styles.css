@@ -1446,6 +1446,43 @@ a { color: inherit; text-decoration: none; }
 .footer p { color: #acbfa6; letter-spacing: .1em; }
 .footer__small { margin-top: 1rem; font-size: .8rem; }
 
+/* Studio credit — "made by Anyaya Designs" */
+.footer__studio {
+  margin-top: 2.75rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(220, 231, 214, .16);
+}
+/* Logo is gold on a transparent background — sits directly on the dark footer */
+.footer__logo { width: 110px; height: auto; margin: 0 auto .6rem; display: block; }
+.footer__studio-tag {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .68rem;
+  color: #9fb398 !important;   /* override .footer p letter-spacing/color */
+  margin-top: -.2rem;
+}
+.footer__studio-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem 1.75rem;
+  margin-top: 1.15rem;
+}
+.footer__studio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: #dce7d6;
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  transition: color .25s ease;
+}
+.footer__studio-link:hover { color: var(--warm); }
+.footer__studio-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
 /* ============================================================
    BACKGROUND MUSIC BUTTON
    ============================================================ */
@@ -1601,12 +1638,6 @@ a { color: inherit; text-decoration: none; }
   .ent-block--stack .ent-two > .ent-col:first-child,
   .ent-block--stack .ent-two > .ent-col:last-child { text-align: center; }
   .ent-block--stack .ent-role { letter-spacing: .15em; }
-
-  /* A single pair forced to one column on phones (e.g. Bread/Cake, whose
-     "Cake" name is very long) — full width per name, centered, no shrinking. */
-  .ent-two--stack { grid-template-columns: 1fr; gap: 1.35rem; }
-  .ent-two--stack > .ent-col:first-child,
-  .ent-two--stack > .ent-col:last-child { text-align: center; }
 }
 
 @media (max-width: 480px) {
@@ -1629,6 +1660,10 @@ a { color: inherit; text-decoration: none; }
   /* Phone: fields stack so the form is taller — give the iframe more height */
   .rsvp__form-embed iframe { height: 930px; }
   .section { padding: 4.5rem 1.25rem; }
+  /* Footer: stack the studio links and add bottom clearance so they never sit
+     under the fixed back-to-top / music buttons at the bottom-right. */
+  .footer { padding-bottom: 6.5rem; }
+  .footer__studio-links { flex-direction: column; align-items: center; gap: .85rem; }
   /* mobile hero: raise the photo focal point + tighten the text so the
      couple's faces stay clear above the words */
   .hero { background-position: center 15%; }

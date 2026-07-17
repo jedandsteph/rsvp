@@ -1607,8 +1607,11 @@ a { color: inherit; text-decoration: none; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); }  /* 2-up on phones */
   /* phones: keep the 2-column mirror, tighten the centre gutter, and use a
      size that still fits the longest names (Cormorant is a narrow serif) */
-  .ent-two { gap: .9rem .5rem; }
-  .ent-list li, .ent-name { font-size: .92rem; line-height: 1.4; }
+  .ent-two { gap: .9rem .4rem; }
+  /* FLUID name size: scale with the screen width so long names (e.g.
+     "Engr. Alvin Michael Velasco") stay on ONE line on smaller phones too,
+     not just wide ones. Caps at .95rem so it never gets oversized. */
+  .ent-list li, .ent-name { font-size: clamp(.66rem, 3.7vw, .95rem); line-height: 1.4; }
   /* keep all 5 colour swatches on one line on phones */
   .attire__palette { gap: .5rem; flex-wrap: nowrap; }
   .swatch__dot { width: 46px; height: 46px; border-width: 2px; }

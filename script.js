@@ -367,3 +367,22 @@ if (document.fonts && document.fonts.ready) {
    RSVP — handled by an embedded Google Form (see index.html).
    No JS needed; responses go to the form's Responses tab / Sheet.
    ============================================================ */
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Get the current URL's query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  // 2. Read the value of 'r'
+  const seatCount = urlParams.get('r');
+  
+  // 3. If 'r' exists in the URL, update the <strong> tag
+  if (seatCount !== null) {
+    const seatsElement = document.getElementById("rsvp-seats-count");
+    if (seatsElement) {
+      // Use textContent to safely update the number
+      seatsElement.textContent = seatCount;
+    }
+  }
+});
+

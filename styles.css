@@ -1601,6 +1601,12 @@ a { color: inherit; text-decoration: none; }
   .ent-block--stack .ent-two > .ent-col:first-child,
   .ent-block--stack .ent-two > .ent-col:last-child { text-align: center; }
   .ent-block--stack .ent-role { letter-spacing: .15em; }
+
+  /* A single pair forced to one column on phones (e.g. Bread/Cake, whose
+     "Cake" name is very long) — full width per name, centered, no shrinking. */
+  .ent-two--stack { grid-template-columns: 1fr; gap: 1.35rem; }
+  .ent-two--stack > .ent-col:first-child,
+  .ent-two--stack > .ent-col:last-child { text-align: center; }
 }
 
 @media (max-width: 480px) {

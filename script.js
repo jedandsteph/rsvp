@@ -81,6 +81,11 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
+      // Re-fit entourage names once a block is actually on screen, in case the
+      // earlier load/fonts pass measured before this block's final layout.
+      if (entry.target.querySelector && entry.target.querySelector('.ent-list, .ent-name')) {
+        if (typeof fitEntourageNames === 'function') fitEntourageNames();
+      }
     }
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
@@ -289,6 +294,73 @@ if (audio) {
     audio.addEventListener('play', reflect);
     audio.addEventListener('pause', reflect);
   }
+}
+
+/* ============================================================
+   ENTOURAGE — auto-fit long names to a single line.
+   The 2-column "invitation" layout gives each name a narrow column,
+   so long names (e.g. "Maria Urzula Kristine A. Bedural") wrap on
+   smaller phones. Rather than tag each long name by hand, we measure
+   every name and, if it would wrap, shrink its font just enough to fit
+   on one line. Runs on load, after web fonts load, and on resize —
+   so it self-corrects for every screen width. Wide screens never
+   overflow, so no shrinking happens there.
+   ============================================================ */
+function fitEntourageNames() {
+  const FLOOR_PX = 8; // never shrink below this (readability last resort)
+
+  // A single off-screen probe to measure each name's natural one-line width.
+  // We measure with a detached span instead of scrollWidth, because a long
+  // name inside a fixed-width grid column overflows *visibly* but the browser
+  // does NOT report that overflow via scrollWidth — so scrollWidth-based
+  // detection silently misses names that are only a few px too wide.
+  const probe = document.createElement('span');
+  probe.setAttribute('aria-hidden', 'true');
+  probe.style.cssText =
+    'position:absolute;left:-99999px;top:-99999px;white-space:nowrap;' +
+    'visibility:hidden;pointer-events:none;';
+  document.body.appendChild(probe);
+
+  document.querySelectorAll('.ent-list li, .ent-name').forEach(el => {
+    // Skip intentional multi-line entries (Secondary Sponsors use <br>).
+    if (el.querySelector('br')) return;
+
+    el.style.fontSize = '';                 // reset to the CSS-declared size
+    const avail = el.clientWidth;           // usable column width (h-padding is 0)
+    if (!avail) return;
+
+    const cs = getComputedStyle(el);
+    // Match the font exactly so the probe width equals the real text width.
+    probe.style.fontFamily    = cs.fontFamily;
+    probe.style.fontStyle     = cs.fontStyle;    // names are italic — matters
+    probe.style.fontWeight    = cs.fontWeight;
+    probe.style.letterSpacing = cs.letterSpacing;
+    let fs = parseFloat(cs.fontSize);
+    probe.style.fontSize = fs + 'px';
+    probe.textContent = el.textContent;
+
+    const natural = probe.getBoundingClientRect().width;
+    if (natural > avail) {
+      // Scale the font down proportionally to fit, minus a hair of safety
+      // margin, but never below the readability floor.
+      fs = Math.max(FLOOR_PX, (fs * avail / natural) - 0.3);
+      el.style.fontSize = fs + 'px';
+    }
+  });
+
+  probe.remove();
+}
+
+// Re-run on resize (debounced) so rotating or a different device recomputes.
+let entFitTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(entFitTimer);
+  entFitTimer = setTimeout(fitEntourageNames, 150);
+});
+window.addEventListener('load', fitEntourageNames);
+// Web fonts change text width — re-measure once Cormorant has loaded.
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(fitEntourageNames);
 }
 
 /* ============================================================
